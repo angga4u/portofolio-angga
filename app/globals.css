@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eff6ff;
+  --foreground: #0f172a;
 }
 
 @theme inline {
@@ -12,15 +16,55 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background: linear-gradient(to bottom right, #dbeafe, #e0f2fe, #e0e7ff);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Text gradient utility */
+.text-gradient {
+  background: linear-gradient(to right, #2563eb, #0ea5e9, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animation delays */
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dbeafe;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #0ea5e9);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #06b6d4);
+}
+
+/* Remove dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #eff6ff;
+    --foreground: #0f172a;
+  }
 }
